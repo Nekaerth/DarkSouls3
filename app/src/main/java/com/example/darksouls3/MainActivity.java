@@ -24,15 +24,25 @@ public class MainActivity extends AppCompatActivity {
 		handleBottomNavigationView();
 	}
 
-	public void updateWeapons(JSONObject weapons) {
-		this.weapons = weapons;
-		//Update GUI elements
-		final EditText searchBar = findViewById(R.id.searchBar);
+	private void tryUpdateWeaponList() {
 		if (weapons == null) {
-			searchBar.setHint("Fail");
+			APImanager.getWeapons();
 		} else {
-			searchBar.setHint("Success");
+			updateWeaponList();
 		}
+	}
+
+	public void setWeapons(JSONObject weapons) {
+		if (weapons != null) {
+			this.weapons = weapons;
+			updateWeaponList();
+		} else {
+			//Clear list?
+		}
+	}
+
+	private void updateWeaponList() {
+		//Make list
 	}
 
 	public void handleSearchButton(View view) {
