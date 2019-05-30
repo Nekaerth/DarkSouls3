@@ -1,7 +1,5 @@
 package com.example.darksouls3;
 
-import android.util.Log;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;

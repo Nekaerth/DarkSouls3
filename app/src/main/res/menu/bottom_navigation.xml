@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/home"/>
+
+    <item
+        android:id="@+id/nav_weapons"
+        android:icon="@drawable/ic_weapons_black_24dp"
+        android:title="@string/weapons"/>
+
+    <item
+        android:id="@+id/nav_spells"
+        android:icon="@drawable/ic_spells_black_24dp"
+        android:title="@string/spells"/>
+
+    <item
+        android:id="@+id/nav_rings"
+        android:icon="@drawable/ic_rings_black_24dp"
+        android:title="@string/rings"/>
+
+    <item
+        android:id="@+id/nav_armor"
+        android:icon="@drawable/ic_armor_black_24dp"
+        android:title="@string/armor"/>
+
+</menu>

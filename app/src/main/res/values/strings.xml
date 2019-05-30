@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DarkSouls3</string>
+    <string name="home">Home</string>
+    <string name="weapons">Weapons</string>
+    <string name="spells">Spells</string>
+    <string name="rings">Rings</string>
+    <string name="armor">Armor</string>
+    <string name="search">Search</string>
 </resources>
