@@ -13,74 +13,74 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
-    private APIManager APImanager;
-    private JSONObject weapons;
+	private APIManager APImanager;
+	private JSONObject weapons;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        APImanager = new APIManager(this);
-        handleBottomNavigationView();
-    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		APImanager = new APIManager(this);
+		handleBottomNavigationView();
+	}
 
-    public void updateWeapons(JSONObject weapons) {
-        this.weapons = weapons;
-        //Update GUI elements
-        final EditText searchBar = findViewById(R.id.searchBar);
-        if (weapons == null) {
-            searchBar.setHint("Fail");
-        } else {
-            searchBar.setHint("Success");
-        }
-    }
+	public void updateWeapons(JSONObject weapons) {
+		this.weapons = weapons;
+		//Update GUI elements
+		final EditText searchBar = findViewById(R.id.searchBar);
+		if (weapons == null) {
+			searchBar.setHint("Fail");
+		} else {
+			searchBar.setHint("Success");
+		}
+	}
 
-    public void handleSearchButton(View view){
-        APImanager.getWeapons();
-    }
+	public void handleSearchButton(View view) {
+		APImanager.getWeapons();
+	}
 
-    private void handleBottomNavigationView() {
-        BottomNavigationView btmNavView = findViewById(R.id.bottom_navigation);
-        btmNavView.setOnNavigationItemSelectedListener(btmNavViewListener);
-        getSupportFragmentManager().beginTransaction().replace(
-                R.id.fragment_container,
-                new HomeFragment()
-        ).commit();
-    }
+	private void handleBottomNavigationView() {
+		BottomNavigationView btmNavView = findViewById(R.id.bottom_navigation);
+		btmNavView.setOnNavigationItemSelectedListener(btmNavViewListener);
+		getSupportFragmentManager().beginTransaction().replace(
+			R.id.fragment_container,
+			new HomeFragment()
+		).commit();
+	}
 
-    private BottomNavigationView.OnNavigationItemSelectedListener btmNavViewListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    Fragment selectedFragment = null;
+	private BottomNavigationView.OnNavigationItemSelectedListener btmNavViewListener =
+		new BottomNavigationView.OnNavigationItemSelectedListener() {
+			@Override
+			public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+				Fragment selectedFragment = null;
 
-                    switch (menuItem.getItemId()) {
-                        case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
-                            break;
-                        case R.id.nav_weapons:
-                            selectedFragment = new WeaponsFragment();
-                            break;
-                        case R.id.nav_spells:
-                            selectedFragment = new SpellsFragment();
-                            break;
-                        case R.id.nav_rings:
-                            selectedFragment = new RingsFragment();
-                            break;
-                        case R.id.nav_armor:
-                            selectedFragment = new ArmorFragment();
-                            break;
-                    }
+				switch (menuItem.getItemId()) {
+					case R.id.nav_home:
+						selectedFragment = new HomeFragment();
+						break;
+					case R.id.nav_weapons:
+						selectedFragment = new WeaponsFragment();
+						break;
+					case R.id.nav_spells:
+						selectedFragment = new SpellsFragment();
+						break;
+					case R.id.nav_rings:
+						selectedFragment = new RingsFragment();
+						break;
+					case R.id.nav_armor:
+						selectedFragment = new ArmorFragment();
+						break;
+				}
 
-                    if (selectedFragment == null) {
-                        return false;
-                    }
+				if (selectedFragment == null) {
+					return false;
+				}
 
-                    getSupportFragmentManager().beginTransaction().replace(
-                            R.id.fragment_container,
-                            selectedFragment
-                    ).commit();
-                    return true;
-                }
-            };
+				getSupportFragmentManager().beginTransaction().replace(
+					R.id.fragment_container,
+					selectedFragment
+				).commit();
+				return true;
+			}
+		};
 }
