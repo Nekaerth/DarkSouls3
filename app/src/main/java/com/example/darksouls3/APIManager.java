@@ -34,13 +34,13 @@ public class APIManager {
                                 new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response){
-                                        mainActivity.updateWeapoons(response);
+                                        mainActivity.updateWeapons(response);
                                     }
                                 },
                                 new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error){
-                                        mainActivity.updateWeapoons(null);
+                                        mainActivity.updateWeapons(null);
                                     }
                                 });
                     }
@@ -48,7 +48,7 @@ public class APIManager {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error){
-                        mainActivity.updateWeapoons(null);
+                        mainActivity.updateWeapons(null);
                     }
                 });
     }

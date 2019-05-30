@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         handleBottomNavigationView();
     }
 
-    public void updateWeapoons(JSONObject weapons) {
+    public void updateWeapons(JSONObject weapons) {
         this.weapons = weapons;
         //Update GUI elements
         final EditText searchBar = findViewById(R.id.searchBar);
