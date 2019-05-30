@@ -7,6 +7,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class APIManager {
@@ -19,15 +20,29 @@ public class APIManager {
     }
 
     public void getWeapons() {
-        RequestQueue requestQueue = Volley.newRequestQueue(mainActivity);
-        JsonObjectRequest objectRequest = new JsonObjectRequest(
-                Request.Method.GET,
-                url + "ds3_weapons",
-                null,
+        request("ds3_weapons?per_page=1",
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response){
-                        mainActivity.updateWeapoons(response);
+                        int count = 1;
+                        try {
+                            count = response.getInt("count");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        request("ds3_weapons?per_page=" + count,
+                                new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response){
+                                        mainActivity.updateWeapoons(response);
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error){
+                                        mainActivity.updateWeapoons(null);
+                                    }
+                                });
                     }
                 },
                 new Response.ErrorListener() {
@@ -35,8 +50,12 @@ public class APIManager {
                     public void onErrorResponse(VolleyError error){
                         mainActivity.updateWeapoons(null);
                     }
-                }
-        );
+                });
+    }
+
+    private void request(String urlEnd, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
+        RequestQueue requestQueue = Volley.newRequestQueue(mainActivity);
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET,url + urlEnd,null, listener, errorListener);
         requestQueue.add(objectRequest);
     }
 }
