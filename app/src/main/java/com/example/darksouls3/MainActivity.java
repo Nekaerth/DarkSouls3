@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.view.MenuItem;
 
 import org.json.JSONObject;
@@ -15,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
 	private APIManager APImanager;
 	private JSONObject weapons;
+	private JSONObject spells;
+	private JSONObject rings;
+	private JSONObject armors;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,69 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateWeaponList() {
+		//Make list
+	}
+
+	private void tryUpdateSpellList() {
+		if (spells == null) {
+			APImanager.getSpells();
+		} else {
+			updateSpellList();
+		}
+	}
+
+	public void setSpells(JSONObject spells) {
+		if (spells != null) {
+			this.spells = spells;
+			updateSpellList();
+		} else {
+			//Clear list?
+		}
+	}
+
+	private void updateSpellList() {
+		//Make list
+	}
+
+	private void tryUpdateRingList() {
+		if (rings == null) {
+			APImanager.getRings();
+		} else {
+			updateRingList();
+		}
+	}
+
+	public void setRings(JSONObject rings) {
+		if (rings != null) {
+			this.rings = rings;
+			updateRingList();
+		} else {
+			//Clear list?
+		}
+	}
+
+	private void updateRingList() {
+		//Make list
+	}
+
+	private void tryUpdateArmorList() {
+		if (armors == null) {
+			APImanager.getArmors();
+		} else {
+			updateArmorList();
+		}
+	}
+
+	public void setArmors(JSONObject armors) {
+		if (armors != null) {
+			this.armors = armors;
+			updateArmorList();
+		} else {
+			//Clear list?
+		}
+	}
+
+	private void updateArmorList() {
 		//Make list
 	}
 
