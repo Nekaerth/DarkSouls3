@@ -5,7 +5,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.MenuItem;
 import android.widget.ListView;
 
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateSpellNames() {
-		spellStringList = getStringList(spells,"ds3_spells");
+		spellStringList = getStringList(spells, "ds3_spells");
 	}
 
 	private void tryDisplayRingList() {
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateRingNames() {
-		ringStringList = getStringList(rings,"ds3_rings");
+		ringStringList = getStringList(rings, "ds3_rings");
 	}
 
 	private void tryDisplayArmorList() {
@@ -127,11 +126,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateArmorNames() {
-		armorStringList = getStringList(armors,"ds3_armors");
-	}
-
-	public void handleSearchButton(View view) {
-		tryDisplayWeaponList();
+		armorStringList = getStringList(armors, "ds3_armors");
 	}
 
 	private void handleBottomNavigationView() {
@@ -139,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 		btmNavView.setOnNavigationItemSelectedListener(btmNavViewListener);
 		getSupportFragmentManager().beginTransaction().replace(
 			R.id.fragment_container,
-			new HomeFragment()
+			new WeaponsFragment()
 		).commit();
 	}
 
@@ -150,9 +145,6 @@ public class MainActivity extends AppCompatActivity {
 				Fragment selectedFragment = null;
 
 				switch (menuItem.getItemId()) {
-					case R.id.nav_home:
-						selectedFragment = new HomeFragment();
-						break;
 					case R.id.nav_weapons:
 						selectedFragment = new WeaponsFragment();
 						tryDisplayWeaponList();
