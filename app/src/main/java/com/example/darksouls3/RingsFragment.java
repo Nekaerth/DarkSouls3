@@ -18,8 +18,4 @@ public class RingsFragment extends ListElementFragment {
 		return inflater.inflate(R.layout.fragment_rings, container, false);
 	}
 
-	@Override
-	public boolean showElement(JSONObject element) {
-		return false;
-	}
 }

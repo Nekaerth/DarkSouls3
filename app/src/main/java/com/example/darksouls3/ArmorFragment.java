@@ -18,8 +18,4 @@ public class ArmorFragment extends ListElementFragment {
 		return inflater.inflate(R.layout.fragment_armor, container, false);
 	}
 
-	@Override
-	public boolean showElement(JSONObject element) {
-		return false;
-	}
 }

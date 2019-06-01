@@ -33,11 +33,6 @@ public class WeaponsFragment extends ListElementFragment {
 		return view;
 	}
 
-	@Override
-	public boolean showElement(JSONObject element) {
-		return false;
-	}
-
 	private void updateViews(JSONObject element) {
 		try {
 			name.setText(element.getString("name"));
