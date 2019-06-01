@@ -30,15 +30,14 @@ public class WeaponsFragment extends ListElementFragment {
 		return view;
 	}
 
-	@Override
-	public boolean showElement(JSONObject element) {
+	private void showElement(JSONObject element) {
 		Log.e("showElement", "called");
 		try {
 			name.setText(element.getString("name"));
 			weaponType.setText("Great Sword");
 		} catch (JSONException e) {
-			return false;
+			return;
 		}
-		return false;
+		return;
 	}
 }

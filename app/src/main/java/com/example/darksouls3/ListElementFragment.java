@@ -15,6 +15,4 @@ public abstract class ListElementFragment extends Fragment {
 		currentElement = element;
 	}
 
-	public abstract boolean showElement(JSONObject element);
-
 }
