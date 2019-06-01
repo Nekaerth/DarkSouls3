@@ -9,13 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class WeaponsFragment extends Fragment {
+import org.json.JSONObject;
+
+public class WeaponsFragment extends Fragment implements ListElementDisplay {
 
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		TextView name = container.findViewById(R.id.name);
-
 		return inflater.inflate(R.layout.fragment_weapons, container, false);
+	}
+
+	@Override
+	public boolean showElement(JSONObject element) {
+		TextView name = getView().findViewById(R.id.name);
+		name.setText("Yo");
+		return false;
 	}
 }
