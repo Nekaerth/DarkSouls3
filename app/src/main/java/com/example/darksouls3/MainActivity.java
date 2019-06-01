@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 	private ArrayList<JSONObject> spellJSONList = new ArrayList<JSONObject>();
 	private ArrayList<JSONObject> ringJSONList = new ArrayList<JSONObject>();
 	private ArrayList<JSONObject> armorJSONList = new ArrayList<JSONObject>();
-	private ListElementFragment selectedFragment = null;
+	private ListElementFragment selectedFragment;
 	private int currentTabId = R.id.nav_weapons;
 
 	@Override
@@ -60,29 +60,34 @@ public class MainActivity extends AppCompatActivity {
 
 				switch (currentTabId) {
 					case R.id.nav_weapons:
+						selectedFragment = new WeaponsFragment();
 						currentItem = weaponJSONList.get(position);
 						break;
 					case R.id.nav_spells:
+						selectedFragment = new SpellsFragment();
 						currentItem = spellJSONList.get(position);
 						break;
 					case R.id.nav_rings:
+						selectedFragment = new RingsFragment();
 						currentItem = ringJSONList.get(position);
 						break;
 					case R.id.nav_armor:
+						selectedFragment = new ArmorFragment();
 						currentItem = armorJSONList.get(position);
 						break;
 				}
 
-				if (currentItem == null|| selectedFragment == null) {
+				if (currentItem == null) {
 					return;
 				}
 
-				selectedFragment.showElement(currentItem);
+				selectedFragment.setElement(currentItem);
 
 				getSupportFragmentManager().beginTransaction().replace(
 					R.id.fragment_container,
 					selectedFragment
 				).commit();
+
 			}
 		};
 	}
@@ -176,9 +181,9 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void handleBottomNavigationView() {
+		selectedFragment = new WeaponsFragment();
 		BottomNavigationView btmNavView = findViewById(R.id.bottom_navigation);
 		btmNavView.setOnNavigationItemSelectedListener(btmNavViewListener);
-		selectedFragment = new WeaponsFragment();
 	}
 
 	private BottomNavigationView.OnNavigationItemSelectedListener btmNavViewListener =
@@ -187,26 +192,26 @@ public class MainActivity extends AppCompatActivity {
 			public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 				if (currentTabId != menuItem.getItemId()) {
 					listManager.clearList();
+					getSupportFragmentManager().beginTransaction()
+						.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+						.hide(selectedFragment)
+						.commit();
 				}
 
 				switch (menuItem.getItemId()) {
 					case R.id.nav_weapons:
-						selectedFragment = new WeaponsFragment();
 						tryDisplayWeaponList();
 						currentTabId = R.id.nav_weapons;
 						break;
 					case R.id.nav_spells:
-						selectedFragment = new SpellsFragment();
 						tryDisplaySpellList();
 						currentTabId = R.id.nav_spells;
 						break;
 					case R.id.nav_rings:
-						selectedFragment = new RingsFragment();
 						tryDisplayRingList();
 						currentTabId = R.id.nav_rings;
 						break;
 					case R.id.nav_armor:
-						selectedFragment = new ArmorFragment();
 						tryDisplayArmorList();
 						currentTabId = R.id.nav_armor;
 						break;
