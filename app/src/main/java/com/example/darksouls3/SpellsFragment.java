@@ -8,11 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class SpellsFragment extends Fragment {
+import org.json.JSONObject;
+
+public class SpellsFragment extends ListElementFragment {
 
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.fragment_spells, container, false);
+	}
+
+	@Override
+	public boolean showElement(JSONObject element) {
+		return false;
 	}
 }

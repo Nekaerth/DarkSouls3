@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 	private ArrayList<JSONObject> spellJSONList = new ArrayList<JSONObject>();
 	private ArrayList<JSONObject> ringJSONList = new ArrayList<JSONObject>();
 	private ArrayList<JSONObject> armorJSONList = new ArrayList<JSONObject>();
-	private Fragment selectedFragment = null;
+	private ListElementFragment selectedFragment = null;
 	private int currentTabId = R.id.nav_weapons;
 
 	@Override

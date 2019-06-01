@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import org.json.JSONObject;
 
-public class WeaponsFragment extends Fragment implements ListElementDisplay {
+public class WeaponsFragment extends ListElementFragment {
 
 	@Nullable
 	@Override
