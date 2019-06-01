@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class WeaponsFragment extends ListElementFragment {
@@ -23,14 +24,21 @@ public class WeaponsFragment extends ListElementFragment {
 		View view = inflater.inflate(R.layout.fragment_weapons, container, false);
 		name = view.findViewById(R.id.name);
 		weaponType = view.findViewById(R.id.weaponType);
+		if (getElement() != null) {
+			showElement(getElement());
+		}
 		return view;
 	}
 
 	@Override
 	public boolean showElement(JSONObject element) {
 		Log.e("showElement", "called");
-		//name.setText("Black Knight Sword");
-		//weaponType.setText("Great Sword");
+		try {
+			name.setText(element.getString("name"));
+			weaponType.setText("Great Sword");
+		} catch (JSONException e) {
+			return false;
+		}
 		return false;
 	}
 }
