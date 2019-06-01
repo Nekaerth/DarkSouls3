@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 		return new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				JSONObject currentItem;
+				JSONObject currentItem = null;
 
 				switch (currentTabId) {
 					case R.id.nav_weapons:
@@ -73,9 +73,11 @@ public class MainActivity extends AppCompatActivity {
 						break;
 				}
 
-				if (selectedFragment == null) {
+				if (currentItem == null|| selectedFragment == null) {
 					return;
 				}
+
+				selectedFragment.showElement(currentItem);
 
 				getSupportFragmentManager().beginTransaction().replace(
 					R.id.fragment_container,
