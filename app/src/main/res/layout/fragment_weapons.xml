@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
 	<TextView
-		android:id="@+id/name"
+		android:id="@+id/weaponName"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="16dp"
@@ -21,7 +20,7 @@
 		app:layout_constraintTop_toTopOf="parent" />
 
 	<TextView
-		android:id="@+id/type"
+		android:id="@+id/weaponDetails"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="16dp"
@@ -32,102 +31,128 @@
 		android:text="Great Sword"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/name" />
+		app:layout_constraintTop_toBottomOf="@+id/weaponName" />
 
 	<TextView
-		android:id="@+id/physical"
+		android:id="@+id/weaponPhysical"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
-		android:layout_marginTop="8dp"
 		android:text="Physical:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/type" />
+		app:layout_constraintTop_toBottomOf="@+id/weaponAttackDamage" />
 
 	<TextView
-		android:id="@+id/magic"
+		android:id="@+id/weaponMagic"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Magic:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/physical" />
+		app:layout_constraintTop_toBottomOf="@+id/weaponPhysical" />
 
 	<TextView
-		android:id="@+id/fire"
+		android:id="@+id/weaponFire"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Fire:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/magic" />
+		app:layout_constraintTop_toBottomOf="@+id/weaponMagic" />
 
 	<TextView
-		android:id="@+id/lightning"
+		android:id="@+id/weaponLightning"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Lightning:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/fire" />
+		app:layout_constraintTop_toBottomOf="@+id/weaponFire" />
 
 	<TextView
-		android:id="@+id/dark"
+		android:id="@+id/weaponDark"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Dark:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/lightning" />
+		app:layout_constraintTop_toBottomOf="@+id/weaponLightning" />
 
 	<TextView
-		android:id="@+id/physicalValue"
+		android:id="@+id/weaponPhysicalValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintBaseline_toBaselineOf="@+id/physical"
-		app:layout_constraintStart_toEndOf="@+id/physical" />
+		app:layout_constraintStart_toEndOf="@+id/weaponPhysical"
+		app:layout_constraintTop_toBottomOf="@+id/weaponAttackDamage" />
 
 	<TextView
-		android:id="@+id/fireValue"
+		android:id="@+id/weaponFireValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/fire"
-		app:layout_constraintTop_toBottomOf="@+id/magicValue" />
+		app:layout_constraintStart_toEndOf="@+id/weaponFire"
+		app:layout_constraintTop_toBottomOf="@+id/weaponMagicValue" />
 
 	<TextView
-		android:id="@+id/lightningValue"
+		android:id="@+id/weaponLightningValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/lightning"
-		app:layout_constraintTop_toBottomOf="@+id/fireValue" />
+		app:layout_constraintStart_toEndOf="@+id/weaponLightning"
+		app:layout_constraintTop_toBottomOf="@+id/weaponFireValue" />
 
 	<TextView
-		android:id="@+id/darkValue"
+		android:id="@+id/weaponDarkValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/dark"
-		app:layout_constraintTop_toBottomOf="@+id/lightningValue" />
+		app:layout_constraintStart_toEndOf="@+id/weaponDark"
+		app:layout_constraintTop_toBottomOf="@+id/weaponLightningValue" />
 
 	<TextView
-		android:id="@+id/magicValue"
+		android:id="@+id/weaponMagicValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/magic"
-		app:layout_constraintTop_toBottomOf="@+id/physicalValue" />
+		app:layout_constraintStart_toEndOf="@+id/weaponMagic"
+		app:layout_constraintTop_toBottomOf="@+id/weaponPhysicalValue" />
+
+	<TextView
+		android:id="@+id/weaponAttackDamage"
+		android:layout_width="100dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginTop="8dp"
+		android:text="Attack Damage"
+		android:textAlignment="center"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/weaponDetails" />
+
+	<TextView
+		android:id="@+id/weaponRequirements"
+		android:layout_width="100dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="Requirements"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/weaponAttackDamage"
+		app:layout_constraintTop_toBottomOf="@+id/weaponDetails" />
 
 </android.support.constraint.ConstraintLayout>

@@ -14,8 +14,7 @@ import org.json.JSONObject;
 public class WeaponsFragment extends ListElementFragment {
 
 	private TextView name;
-	private TextView type;
-	private TextView weight;
+	private TextView details;
 	private TextView physicalValue;
 	private TextView magicValue;
 	private TextView fireValue;
@@ -33,22 +32,31 @@ public class WeaponsFragment extends ListElementFragment {
 		return view;
 	}
 
+	private void findViewsById(View view) {
+		name = view.findViewById(R.id.weaponName);
+		details = view.findViewById(R.id.weaponDetails);
+		physicalValue = view.findViewById(R.id.weaponPhysicalValue);
+		magicValue = view.findViewById(R.id.weaponMagicValue);
+		fireValue = view.findViewById(R.id.weaponFireValue);
+		lightningValue = view.findViewById(R.id.weaponLightningValue);
+		darkValue = view.findViewById(R.id.weaponDarkValue);
+	}
+
 	private void updateViews(JSONObject element) {
 		try {
 			name.setText(element.getString("name"));
-			type.setText("Great Sword");
+			details.setText(element.getString("weapon_type") + " - " + element.getString("weight") + " lbs");
+
+			String damagesString = element.getString("base_damage");
+			String[] damagesList = damagesString.substring(1).split(", ", 6);
+			physicalValue.setText(damagesList[0].split("\\.")[0]);
+			magicValue.setText(damagesList[1].split("\\.")[0]);
+			fireValue.setText(damagesList[2].split("\\.")[0]);
+			lightningValue.setText(damagesList[3].split("\\.")[0]);
+			darkValue.setText(damagesList[4].split("\\.")[0]);
+
 		} catch (JSONException e) {
 		}
 	}
 
-	private void findViewsById(View view) {
-		name = view.findViewById(R.id.name);
-		type = view.findViewById(R.id.type);
-		//weight = view.findViewById(R.id.weight);
-		physicalValue = view.findViewById(R.id.physicalValue);
-		magicValue = view.findViewById(R.id.magicValue);
-		fireValue = view.findViewById(R.id.fireValue);
-		lightningValue = view.findViewById(R.id.lightningValue);
-		darkValue = view.findViewById(R.id.darkValue);
-	}
 }
