@@ -20,6 +20,10 @@ public class WeaponsFragment extends ListElementFragment {
 	private TextView fireValue;
 	private TextView lightningValue;
 	private TextView darkValue;
+	private TextView strengthValue;
+	private TextView dexterityValue;
+	private TextView intelligenceValue;
+	private TextView faithValue;
 
 	@Nullable
 	@Override
@@ -40,6 +44,10 @@ public class WeaponsFragment extends ListElementFragment {
 		fireValue = view.findViewById(R.id.weaponFireValue);
 		lightningValue = view.findViewById(R.id.weaponLightningValue);
 		darkValue = view.findViewById(R.id.weaponDarkValue);
+		strengthValue = view.findViewById(R.id.weaponStrengthValue);
+		dexterityValue = view.findViewById(R.id.weaponDexterityValue);
+		intelligenceValue = view.findViewById(R.id.weaponIntelligenceValue);
+		faithValue = view.findViewById(R.id.weaponFaithValue);
 	}
 
 	private void updateViews(JSONObject element) {
@@ -55,6 +63,10 @@ public class WeaponsFragment extends ListElementFragment {
 			lightningValue.setText(damagesList[3].split("\\.")[0]);
 			darkValue.setText(damagesList[4].split("\\.")[0]);
 
+			strengthValue.setText(element.getString("strength_req"));
+			dexterityValue.setText(element.getString("dex_req"));
+			intelligenceValue.setText(element.getString("intelligence_req"));
+			faithValue.setText(element.getString("faith_req"));
 		} catch (JSONException e) {
 		}
 	}

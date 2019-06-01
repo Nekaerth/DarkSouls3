@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
+
+	<TextView
+		android:id="@+id/weaponDexterity"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Dexterity:"
+		app:layout_constraintEnd_toStartOf="@+id/weaponDexterityValue"
+		app:layout_constraintTop_toBottomOf="@+id/weaponStrength" />
 
 	<TextView
 		android:id="@+id/weaponName"
@@ -142,17 +151,82 @@
 
 	<TextView
 		android:id="@+id/weaponRequirements"
-		android:layout_width="100dp"
+		android:layout_width="110dp"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="8dp"
-		android:layout_marginLeft="8dp"
 		android:layout_marginTop="8dp"
 		android:layout_marginEnd="8dp"
 		android:layout_marginRight="8dp"
 		android:text="Requirements"
 		android:textAlignment="center"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toEndOf="@+id/weaponAttackDamage"
 		app:layout_constraintTop_toBottomOf="@+id/weaponDetails" />
+
+	<TextView
+		android:id="@+id/weaponFaith"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Faith:"
+		app:layout_constraintEnd_toStartOf="@+id/weaponFaithValue"
+		app:layout_constraintTop_toBottomOf="@+id/weaponIntelligence" />
+
+	<TextView
+		android:id="@+id/weaponIntelligence"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Intelligence:"
+		app:layout_constraintEnd_toStartOf="@+id/weaponIntelligenceValue"
+		app:layout_constraintTop_toBottomOf="@+id/weaponDexterity" />
+
+	<TextView
+		android:id="@+id/weaponStrength"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Strength:"
+		app:layout_constraintEnd_toStartOf="@+id/weaponStrengthValue"
+		app:layout_constraintTop_toBottomOf="@+id/weaponRequirements" />
+
+	<TextView
+		android:id="@+id/weaponFaithValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/weaponIntelligenceValue" />
+
+	<TextView
+		android:id="@+id/weaponIntelligenceValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/weaponDexterityValue" />
+
+	<TextView
+		android:id="@+id/weaponDexterityValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/weaponStrengthValue" />
+
+	<TextView
+		android:id="@+id/weaponStrengthValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/weaponRequirements" />
 
 </android.support.constraint.ConstraintLayout>
