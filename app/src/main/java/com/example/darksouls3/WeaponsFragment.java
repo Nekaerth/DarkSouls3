@@ -21,8 +21,8 @@ public class WeaponsFragment extends ListElementFragment {
 	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		Log.e("onCreateView", "called");
 		View view = inflater.inflate(R.layout.fragment_weapons, container, false);
-		name = view.findViewById(R.id.name);
-		weaponType = view.findViewById(R.id.weaponType);
+		findViewsById(view);
+		setDefaultValues();
 		return view;
 	}
 
@@ -32,5 +32,14 @@ public class WeaponsFragment extends ListElementFragment {
 		//name.setText("Black Knight Sword");
 		//weaponType.setText("Great Sword");
 		return false;
+	}
+
+	private void findViewsById(View view) {
+		name = view.findViewById(R.id.name);
+		weaponType = view.findViewById(R.id.weaponType);
+	}
+
+	private void setDefaultValues() {
+		//
 	}
 }
