@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,6 +23,11 @@ public class ListManager {
 
 	public void updateList(ArrayList<String> list) {
 		this.baseAdapter.setList(list);
+		this.baseAdapter.notifyDataSetChanged();
+	}
+
+	public void clearList() {
+		this.baseAdapter.setList(new ArrayList<String>());
 		this.baseAdapter.notifyDataSetChanged();
 	}
 
@@ -48,7 +54,7 @@ public class ListManager {
 
 		@Override
 		public long getItemId(int position) {
-			return 0;
+			return position;
 		}
 
 		@Override

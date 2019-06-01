@@ -1,11 +1,15 @@
 package com.example.darksouls3;
 
+import android.support.v4.app.FragmentManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import org.json.JSONException;
@@ -25,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
 	private ArrayList<String> spellStringList = new ArrayList<String>();
 	private ArrayList<String> ringStringList = new ArrayList<String>();
 	private ArrayList<String> armorStringList = new ArrayList<String>();
+	private ArrayList<JSONObject> weaponJSONList = new ArrayList<JSONObject>();
+	private ArrayList<JSONObject> spellJSONList = new ArrayList<JSONObject>();
+	private ArrayList<JSONObject> ringJSONList = new ArrayList<JSONObject>();
+	private ArrayList<JSONObject> armorJSONList = new ArrayList<JSONObject>();
+	private Fragment selectedFragment = null;
+	private int currentTabId = R.id.nav_weapons;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +47,42 @@ public class MainActivity extends AppCompatActivity {
 
 	private void handleListView() {
 		ListView listView = findViewById(R.id.list_view);
+		listView.setOnItemClickListener(createListener());
 		listManager = new ListManager(listView, this);
 		tryDisplayWeaponList();
+	}
+
+	private AdapterView.OnItemClickListener createListener() {
+		return new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				JSONObject currentItem;
+
+				switch (currentTabId) {
+					case R.id.nav_weapons:
+						currentItem = weaponJSONList.get(position);
+						break;
+					case R.id.nav_spells:
+						currentItem = spellJSONList.get(position);
+						break;
+					case R.id.nav_rings:
+						currentItem = ringJSONList.get(position);
+						break;
+					case R.id.nav_armor:
+						currentItem = armorJSONList.get(position);
+						break;
+				}
+
+				if (selectedFragment == null) {
+					return;
+				}
+
+				getSupportFragmentManager().beginTransaction().replace(
+					R.id.fragment_container,
+					selectedFragment
+				).commit();
+			}
+		};
 	}
 
 	private void tryDisplayWeaponList() {
@@ -60,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateWeaponNames() {
-		weaponStringList = getStringList(weapons, "ds3_weapons");
+		weaponStringList = getStringList(weapons, weaponJSONList, "ds3_weapons");
 	}
 
 	private void tryDisplaySpellList() {
@@ -82,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateSpellNames() {
-		spellStringList = getStringList(spells, "ds3_spells");
+		spellStringList = getStringList(spells, spellJSONList, "ds3_spells");
 	}
 
 	private void tryDisplayRingList() {
@@ -104,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateRingNames() {
-		ringStringList = getStringList(rings, "ds3_rings");
+		ringStringList = getStringList(rings, ringJSONList, "ds3_rings");
 	}
 
 	private void tryDisplayArmorList() {
@@ -126,72 +170,69 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void updateArmorNames() {
-		armorStringList = getStringList(armors, "ds3_armors");
+		armorStringList = getStringList(armors, armorJSONList, "ds3_armors");
 	}
 
 	private void handleBottomNavigationView() {
 		BottomNavigationView btmNavView = findViewById(R.id.bottom_navigation);
 		btmNavView.setOnNavigationItemSelectedListener(btmNavViewListener);
-		getSupportFragmentManager().beginTransaction().replace(
-			R.id.fragment_container,
-			new WeaponsFragment()
-		).commit();
+		selectedFragment = new WeaponsFragment();
 	}
 
 	private BottomNavigationView.OnNavigationItemSelectedListener btmNavViewListener =
 		new BottomNavigationView.OnNavigationItemSelectedListener() {
 			@Override
 			public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-				Fragment selectedFragment = null;
+				if (currentTabId != menuItem.getItemId()) {
+					listManager.clearList();
+				}
 
 				switch (menuItem.getItemId()) {
 					case R.id.nav_weapons:
 						selectedFragment = new WeaponsFragment();
 						tryDisplayWeaponList();
+						currentTabId = R.id.nav_weapons;
 						break;
 					case R.id.nav_spells:
 						selectedFragment = new SpellsFragment();
 						tryDisplaySpellList();
+						currentTabId = R.id.nav_spells;
 						break;
 					case R.id.nav_rings:
 						selectedFragment = new RingsFragment();
 						tryDisplayRingList();
+						currentTabId = R.id.nav_rings;
 						break;
 					case R.id.nav_armor:
 						selectedFragment = new ArmorFragment();
 						tryDisplayArmorList();
+						currentTabId = R.id.nav_armor;
 						break;
 				}
-
-				if (selectedFragment == null) {
-					return false;
-				}
-
-				getSupportFragmentManager().beginTransaction().replace(
-					R.id.fragment_container,
-					selectedFragment
-				).commit();
 				return true;
 			}
 		};
 
-	private ArrayList<String> getStringList(JSONObject object, String type) {
+	private ArrayList<String> getStringList(JSONObject sourceJSON, ArrayList<JSONObject> dataList, String type) {
 		ArrayList<String> stringList = new ArrayList<String>();
 		int c = 0;
 		JSONObject w;
+		JSONObject e;
 		try {
-			c = object.getInt("count");
-			w = object.getJSONObject(type);
-		} catch (JSONException e) {
+			c = sourceJSON.getInt("count");
+			w = sourceJSON.getJSONObject(type);
+		} catch (JSONException ex) {
 			return null;
 		}
 		for (int i = 1; i < c + 1; i++) {
 			String name = "Placeholder " + i;
 			try {
-				name = w.getJSONObject("" + i).getString("name");
-			} catch (JSONException e) {
+				e = w.getJSONObject("" + i);
+				name = e.getString("name");
+			} catch (JSONException ex) {
 				continue;
 			}
+			dataList.add(e);
 			stringList.add(name);
 		}
 		return stringList;
