@@ -33,7 +33,7 @@ public class RingsFragment extends ListElementFragment {
 			name.setText(element.getString("name"));
 			type.setText("Rank "
 				+ element.getString("rank")
-				+ ", "
+				+ " - "
 				+ element.getString("weight")
 				+ "lbs");
 		} catch (JSONException e) {

@@ -1,15 +1,338 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="@android:color/holo_purple">
+	android:layout_height="match_parent">
 
 	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="200dp"
-		android:text="Spell"
-		android:textSize="30dp"
+		android:id="@+id/armorPoison"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Poison:"
+		app:layout_constraintEnd_toStartOf="@+id/armorPoisonValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorBleed" />
+
+	<TextView
+		android:id="@+id/armorName"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="16dp"
+		android:layout_marginRight="16dp"
+		android:text="@string/placeholder"
+		android:textSize="18sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/armorDetails"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="16dp"
+		android:layout_marginRight="16dp"
+		android:text="@string/placeholder"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorName" />
+
+	<TextView
+		android:id="@+id/armorPhysical"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Physical:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorDefence" />
+
+	<TextView
+		android:id="@+id/armorStrike"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="  VS Strike:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorPhysical" />
+
+	<TextView
+		android:id="@+id/armorSlash"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="  VS Slash:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorStrike" />
+
+	<TextView
+		android:id="@+id/armorThrust"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="  VS Thrust:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorSlash" />
+
+	<TextView
+		android:id="@+id/armorFire"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Fire:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorMagic" />
+
+	<TextView
+		android:id="@+id/armorLightning"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Lightning:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorFire" />
+
+	<TextView
+		android:id="@+id/armorDark"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Dark:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorLightning" />
+
+	<TextView
+		android:id="@+id/armorMagic"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Magic:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorThrust" />
+
+	<TextView
+		android:id="@+id/armorPhysicalValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorPhysical"
+		app:layout_constraintTop_toBottomOf="@+id/armorDefence" />
+
+	<TextView
+		android:id="@+id/armorSlashValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorSlash"
+		app:layout_constraintTop_toBottomOf="@+id/armorStrikeValue" />
+
+	<TextView
+		android:id="@+id/armorThrustValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorThrust"
+		app:layout_constraintTop_toBottomOf="@+id/armorSlashValue" />
+
+	<TextView
+		android:id="@+id/armorFireValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorFire"
+		app:layout_constraintTop_toBottomOf="@+id/armorMagicValue" />
+
+	<TextView
+		android:id="@+id/armorDarkValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorDark"
+		app:layout_constraintTop_toBottomOf="@+id/armorLightningValue" />
+
+	<TextView
+		android:id="@+id/armorLightningValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorLightning"
+		app:layout_constraintTop_toBottomOf="@+id/armorFireValue" />
+
+	<TextView
+		android:id="@+id/armorMagicValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorFire"
+		app:layout_constraintTop_toBottomOf="@+id/armorThrustValue" />
+
+	<TextView
+		android:id="@+id/armorStrikeValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/armorStrike"
+		app:layout_constraintTop_toBottomOf="@+id/armorPhysicalValue" />
+
+	<TextView
+		android:id="@+id/armorDefence"
+		android:layout_width="110dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginTop="8dp"
+		android:text="Defence"
+		android:textAlignment="center"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorDetails" />
+
+	<TextView
+		android:id="@+id/armorResistance"
+		android:layout_width="110dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="Resistance"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorDetails" />
+
+	<TextView
+		android:id="@+id/armorCurse"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Curse:"
+		app:layout_constraintEnd_toStartOf="@+id/armorCurseValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorFrost" />
+
+	<TextView
+		android:id="@+id/armorPoise"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="24dp"
+		android:text="Poise:"
+		app:layout_constraintEnd_toStartOf="@+id/armorPoiseValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorCurse" />
+
+	<TextView
+		android:id="@+id/armorFrost"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Frost:"
+		app:layout_constraintEnd_toStartOf="@+id/armorFrostValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorPoison" />
+
+	<TextView
+		android:id="@+id/armorBleed"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:text="Bleed:"
+		app:layout_constraintEnd_toStartOf="@+id/armorBleedValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorResistance" />
+
+	<TextView
+		android:id="@+id/armorPoiseValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="24dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorCurseValue" />
+
+	<TextView
+		android:id="@+id/armorCurseValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorFrostValue" />
+
+	<TextView
+		android:id="@+id/armorFrostValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorPoisonValue" />
+
+	<TextView
+		android:id="@+id/armorPoisonValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorBleedValue" />
+
+	<TextView
+		android:id="@+id/armorBleedValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorResistance" />
+
+	<View
+		android:id="@+id/weapon_divider1"
+		android:layout_width="395dp"
+		android:layout_height="2dp"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:background="?android:attr/listDivider"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/armorDark" />
+
+	<View
+		android:id="@+id/weapon_divider2"
+		android:layout_width="395dp"
+		android:layout_height="2dp"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginTop="2dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginRight="8dp"
+		android:background="?android:attr/listDivider"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/weapon_divider1" />
 
 </android.support.constraint.ConstraintLayout>

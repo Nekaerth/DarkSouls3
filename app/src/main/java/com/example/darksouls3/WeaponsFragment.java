@@ -37,17 +37,17 @@ public class WeaponsFragment extends ListElementFragment {
 	}
 
 	private void findViewsById(View view) {
-		name = view.findViewById(R.id.weaponName);
-		details = view.findViewById(R.id.weaponDetails);
-		physicalValue = view.findViewById(R.id.weaponPhysicalValue);
-		magicValue = view.findViewById(R.id.weaponMagicValue);
-		fireValue = view.findViewById(R.id.weaponFireValue);
-		lightningValue = view.findViewById(R.id.weaponLightningValue);
-		darkValue = view.findViewById(R.id.weaponDarkValue);
-		strengthValue = view.findViewById(R.id.weaponStrengthValue);
-		dexterityValue = view.findViewById(R.id.weaponDexterityValue);
-		intelligenceValue = view.findViewById(R.id.weaponIntelligenceValue);
-		faithValue = view.findViewById(R.id.weaponFaithValue);
+		name = view.findViewById(R.id.armorName);
+		details = view.findViewById(R.id.armorDetails);
+		physicalValue = view.findViewById(R.id.armorPhysicalValue);
+		magicValue = view.findViewById(R.id.armorStrikeValue);
+		fireValue = view.findViewById(R.id.armorSlashValue);
+		lightningValue = view.findViewById(R.id.armorThrustValue);
+		darkValue = view.findViewById(R.id.armorFireValue);
+		strengthValue = view.findViewById(R.id.armorBleedValue);
+		dexterityValue = view.findViewById(R.id.armorPoisonValue);
+		intelligenceValue = view.findViewById(R.id.armorFrostValue);
+		faithValue = view.findViewById(R.id.armorPoiseValue);
 	}
 
 	private void updateViews(JSONObject element) {

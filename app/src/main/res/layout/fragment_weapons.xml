@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
 	<TextView
-		android:id="@+id/weaponDexterity"
+		android:id="@+id/armorPoison"
 		android:layout_width="80dp"
 		android:layout_height="wrap_content"
 		android:text="Dexterity:"
-		app:layout_constraintEnd_toStartOf="@+id/weaponDexterityValue"
-		app:layout_constraintTop_toBottomOf="@+id/weaponStrength" />
+		app:layout_constraintEnd_toStartOf="@+id/armorPoisonValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorBleed" />
 
 	<TextView
-		android:id="@+id/weaponName"
+		android:id="@+id/armorName"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="16dp"
@@ -22,14 +21,14 @@
 		android:layout_marginTop="8dp"
 		android:layout_marginEnd="16dp"
 		android:layout_marginRight="16dp"
-		android:text="Black Knight Sword"
+		android:text="@string/placeholder"
 		android:textSize="18sp"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
 	<TextView
-		android:id="@+id/weaponDetails"
+		android:id="@+id/armorDetails"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="16dp"
@@ -37,108 +36,108 @@
 		android:layout_marginTop="8dp"
 		android:layout_marginEnd="16dp"
 		android:layout_marginRight="16dp"
-		android:text="Great Sword"
+		android:text="@string/placeholder"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponName" />
+		app:layout_constraintTop_toBottomOf="@+id/armorName" />
 
 	<TextView
-		android:id="@+id/weaponPhysical"
+		android:id="@+id/armorPhysical"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Physical:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponAttackDamage" />
+		app:layout_constraintTop_toBottomOf="@+id/armorDefence" />
 
 	<TextView
-		android:id="@+id/weaponMagic"
+		android:id="@+id/armorStrike"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Magic:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponPhysical" />
+		app:layout_constraintTop_toBottomOf="@+id/armorPhysical" />
 
 	<TextView
-		android:id="@+id/weaponFire"
+		android:id="@+id/armorSlash"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Fire:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponMagic" />
+		app:layout_constraintTop_toBottomOf="@+id/armorStrike" />
 
 	<TextView
-		android:id="@+id/weaponLightning"
+		android:id="@+id/armorThrust"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Lightning:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponFire" />
+		app:layout_constraintTop_toBottomOf="@+id/armorSlash" />
 
 	<TextView
-		android:id="@+id/weaponDark"
+		android:id="@+id/armorFire"
 		android:layout_width="70dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
 		android:layout_marginLeft="8dp"
 		android:text="Dark:"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponLightning" />
+		app:layout_constraintTop_toBottomOf="@+id/armorThrust" />
 
 	<TextView
-		android:id="@+id/weaponPhysicalValue"
+		android:id="@+id/armorPhysicalValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/weaponPhysical"
-		app:layout_constraintTop_toBottomOf="@+id/weaponAttackDamage" />
+		app:layout_constraintStart_toEndOf="@+id/armorPhysical"
+		app:layout_constraintTop_toBottomOf="@+id/armorDefence" />
 
 	<TextView
-		android:id="@+id/weaponFireValue"
+		android:id="@+id/armorSlashValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/weaponFire"
-		app:layout_constraintTop_toBottomOf="@+id/weaponMagicValue" />
+		app:layout_constraintStart_toEndOf="@+id/armorSlash"
+		app:layout_constraintTop_toBottomOf="@+id/armorStrikeValue" />
 
 	<TextView
-		android:id="@+id/weaponLightningValue"
+		android:id="@+id/armorThrustValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/weaponLightning"
-		app:layout_constraintTop_toBottomOf="@+id/weaponFireValue" />
+		app:layout_constraintStart_toEndOf="@+id/armorThrust"
+		app:layout_constraintTop_toBottomOf="@+id/armorSlashValue" />
 
 	<TextView
-		android:id="@+id/weaponDarkValue"
+		android:id="@+id/armorFireValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/weaponDark"
-		app:layout_constraintTop_toBottomOf="@+id/weaponLightningValue" />
+		app:layout_constraintStart_toEndOf="@+id/armorFire"
+		app:layout_constraintTop_toBottomOf="@+id/armorThrustValue" />
 
 	<TextView
-		android:id="@+id/weaponMagicValue"
+		android:id="@+id/armorStrikeValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:text="0"
 		android:textAlignment="center"
-		app:layout_constraintStart_toEndOf="@+id/weaponMagic"
-		app:layout_constraintTop_toBottomOf="@+id/weaponPhysicalValue" />
+		app:layout_constraintStart_toEndOf="@+id/armorStrike"
+		app:layout_constraintTop_toBottomOf="@+id/armorPhysicalValue" />
 
 	<TextView
-		android:id="@+id/weaponAttackDamage"
+		android:id="@+id/armorDefence"
 		android:layout_width="100dp"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="8dp"
@@ -147,10 +146,10 @@
 		android:text="Attack Damage"
 		android:textAlignment="center"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponDetails" />
+		app:layout_constraintTop_toBottomOf="@+id/armorDetails" />
 
 	<TextView
-		android:id="@+id/weaponRequirements"
+		android:id="@+id/armorResistance"
 		android:layout_width="110dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="8dp"
@@ -159,34 +158,34 @@
 		android:text="Requirements"
 		android:textAlignment="center"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponDetails" />
+		app:layout_constraintTop_toBottomOf="@+id/armorDetails" />
 
 	<TextView
-		android:id="@+id/weaponFaith"
+		android:id="@+id/armorCurse"
 		android:layout_width="80dp"
 		android:layout_height="wrap_content"
 		android:text="Faith:"
-		app:layout_constraintEnd_toStartOf="@+id/weaponFaithValue"
-		app:layout_constraintTop_toBottomOf="@+id/weaponIntelligence" />
+		app:layout_constraintEnd_toStartOf="@+id/armorPoiseValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorFrost" />
 
 	<TextView
-		android:id="@+id/weaponIntelligence"
+		android:id="@+id/armorFrost"
 		android:layout_width="80dp"
 		android:layout_height="wrap_content"
 		android:text="Intelligence:"
-		app:layout_constraintEnd_toStartOf="@+id/weaponIntelligenceValue"
-		app:layout_constraintTop_toBottomOf="@+id/weaponDexterity" />
+		app:layout_constraintEnd_toStartOf="@+id/armorFrostValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorPoison" />
 
 	<TextView
-		android:id="@+id/weaponStrength"
+		android:id="@+id/armorBleed"
 		android:layout_width="80dp"
 		android:layout_height="wrap_content"
 		android:text="Strength:"
-		app:layout_constraintEnd_toStartOf="@+id/weaponStrengthValue"
-		app:layout_constraintTop_toBottomOf="@+id/weaponRequirements" />
+		app:layout_constraintEnd_toStartOf="@+id/armorBleedValue"
+		app:layout_constraintTop_toBottomOf="@+id/armorResistance" />
 
 	<TextView
-		android:id="@+id/weaponFaithValue"
+		android:id="@+id/armorPoiseValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="8dp"
@@ -194,10 +193,10 @@
 		android:text="0"
 		android:textAlignment="center"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponIntelligenceValue" />
+		app:layout_constraintTop_toBottomOf="@+id/armorFrostValue" />
 
 	<TextView
-		android:id="@+id/weaponIntelligenceValue"
+		android:id="@+id/armorFrostValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="8dp"
@@ -205,10 +204,10 @@
 		android:text="0"
 		android:textAlignment="center"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponDexterityValue" />
+		app:layout_constraintTop_toBottomOf="@+id/armorPoisonValue" />
 
 	<TextView
-		android:id="@+id/weaponDexterityValue"
+		android:id="@+id/armorPoisonValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="8dp"
@@ -216,10 +215,10 @@
 		android:text="0"
 		android:textAlignment="center"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponStrengthValue" />
+		app:layout_constraintTop_toBottomOf="@+id/armorBleedValue" />
 
 	<TextView
-		android:id="@+id/weaponStrengthValue"
+		android:id="@+id/armorBleedValue"
 		android:layout_width="30dp"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="8dp"
@@ -227,7 +226,7 @@
 		android:text="0"
 		android:textAlignment="center"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponRequirements" />
+		app:layout_constraintTop_toBottomOf="@+id/armorResistance" />
 
 	<View
 		android:id="@+id/weapon_divider1"
@@ -241,7 +240,7 @@
 		android:background="?android:attr/listDivider"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/weaponDark" />
+		app:layout_constraintTop_toBottomOf="@+id/armorFire" />
 
 	<View
 		android:id="@+id/weapon_divider2"
