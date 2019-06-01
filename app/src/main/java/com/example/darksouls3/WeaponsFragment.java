@@ -12,16 +12,19 @@ import org.json.JSONObject;
 
 public class WeaponsFragment extends ListElementFragment {
 
+	private TextView name;
+
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.fragment_weapons, container, false);
+		View view = inflater.inflate(R.layout.fragment_weapons, container, false);
+		name = view.findViewById(R.id.name);
+		return view;
 	}
 
 	@Override
 	public boolean showElement(JSONObject element) {
-		TextView name = getView().findViewById(R.id.name);
-		name.setText("Yo");
+		name.setText("Black Knight Sword");
 		return false;
 	}
 }
