@@ -14,7 +14,13 @@ import org.json.JSONObject;
 public class WeaponsFragment extends ListElementFragment {
 
 	private TextView name;
-	private TextView weaponType;
+	private TextView type;
+	private TextView weight;
+	private TextView physicalValue;
+	private TextView magicValue;
+	private TextView fireValue;
+	private TextView lightningValue;
+	private TextView darkValue;
 
 	@Nullable
 	@Override
@@ -35,13 +41,19 @@ public class WeaponsFragment extends ListElementFragment {
 	private void updateViews(JSONObject element) {
 		try {
 			name.setText(element.getString("name"));
-			weaponType.setText("Great Sword");
+			type.setText("Great Sword");
 		} catch (JSONException e) {
 		}
 	}
 
 	private void findViewsById(View view) {
 		name = view.findViewById(R.id.name);
-		weaponType = view.findViewById(R.id.weaponType);
+		type = view.findViewById(R.id.type);
+		//weight = view.findViewById(R.id.weight);
+		physicalValue = view.findViewById(R.id.physicalValue);
+		magicValue = view.findViewById(R.id.magicValue);
+		fireValue = view.findViewById(R.id.fireValue);
+		lightningValue = view.findViewById(R.id.lightningValue);
+		darkValue = view.findViewById(R.id.darkValue);
 	}
 }

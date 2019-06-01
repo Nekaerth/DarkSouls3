@@ -21,7 +21,7 @@
 		app:layout_constraintTop_toTopOf="parent" />
 
 	<TextView
-		android:id="@+id/weaponType"
+		android:id="@+id/type"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="16dp"
@@ -33,5 +33,101 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/name" />
+
+	<TextView
+		android:id="@+id/physical"
+		android:layout_width="70dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginTop="8dp"
+		android:text="Physical:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/type" />
+
+	<TextView
+		android:id="@+id/magic"
+		android:layout_width="70dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Magic:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/physical" />
+
+	<TextView
+		android:id="@+id/fire"
+		android:layout_width="70dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Fire:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/magic" />
+
+	<TextView
+		android:id="@+id/lightning"
+		android:layout_width="70dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Lightning:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/fire" />
+
+	<TextView
+		android:id="@+id/dark"
+		android:layout_width="70dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginLeft="8dp"
+		android:text="Dark:"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/lightning" />
+
+	<TextView
+		android:id="@+id/physicalValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintBaseline_toBaselineOf="@+id/physical"
+		app:layout_constraintStart_toEndOf="@+id/physical" />
+
+	<TextView
+		android:id="@+id/fireValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/fire"
+		app:layout_constraintTop_toBottomOf="@+id/magicValue" />
+
+	<TextView
+		android:id="@+id/lightningValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/lightning"
+		app:layout_constraintTop_toBottomOf="@+id/fireValue" />
+
+	<TextView
+		android:id="@+id/darkValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/dark"
+		app:layout_constraintTop_toBottomOf="@+id/lightningValue" />
+
+	<TextView
+		android:id="@+id/magicValue"
+		android:layout_width="30dp"
+		android:layout_height="wrap_content"
+		android:text="0"
+		android:textAlignment="center"
+		app:layout_constraintStart_toEndOf="@+id/magic"
+		app:layout_constraintTop_toBottomOf="@+id/physicalValue" />
 
 </android.support.constraint.ConstraintLayout>
